@@ -30,10 +30,13 @@ func RPN(inputs string) int {
 
 	for i := range arr {
 		if arr[i] == "+" {
-			fmt.Println(stack)
-			x, stack = delete(stack, len(stack)-1)
 			y, stack = delete(stack, len(stack)-1)
+			x, stack = delete(stack, len(stack)-1)
 			stack = append(stack, x+y)
+		} else if arr[i] == "-" {
+			y, stack = delete(stack, len(stack)-1)
+			x, stack = delete(stack, len(stack)-1)
+			stack = append(stack, x-y)
 		} else {
 			a, _ := strconv.Atoi(arr[i])
 			stack = append(stack, a)
