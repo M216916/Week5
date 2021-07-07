@@ -17,8 +17,8 @@ func TestRPN02(t *testing.T) {
 }
 
 func TestRPN03(t *testing.T) {
-	output := RPN("3 6 *")
-	if output != 18 {
-		t.Error("Test02 is failed")
+	output := RPN("2 3 5 * * 5 +")
+	if output != 35 {
+		t.Error("Test03 is failed")
 	}
 }
