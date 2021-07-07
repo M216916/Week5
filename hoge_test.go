@@ -22,3 +22,10 @@ func TestRPN03(t *testing.T) {
 		t.Error("Test03 is failed")
 	}
 }
+
+func TestRPN04(t *testing.T) {
+	output := RPN("1 3 / 1 6 / +")
+	if output != 1/2 {
+		t.Error("Test04 is failed")
+	}
+}
