@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
-	//"math/big"
 	"bufio"
+	"fmt"
+	"math/big"
 	"os"
 	"strconv"
 	"strings"
@@ -41,8 +41,13 @@ func RPN(inputs string) int {
 			y, stack = delete(stack, len(stack)-1)
 			x, stack = delete(stack, len(stack)-1)
 			stack = append(stack, x*y)
+		} else if arr[i] == "/" {
+			y, stack = delete(stack, len(stack)-1)
+			x, stack = delete(stack, len(stack)-1)
+			stack = append(stack, new(big.Rat).SetFloat64(x/y))
 		} else {
 			a, _ := strconv.Atoi(arr[i])
+			a.SetUint64(a)
 			stack = append(stack, a)
 		}
 	}
